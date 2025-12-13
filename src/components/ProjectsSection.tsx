@@ -55,7 +55,7 @@ function ProjectCard({ project, index, isInView }: { project: typeof projects[0]
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={`group relative overflow-hidden rounded-2xl glass-card ${
-        project.featured ? 'md:col-span-2' : ''
+        project.featured ? 'lg:col-span-2' : ''
       }`}
       style={{
         transform: isHovered ? 'perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02)' : 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)',
@@ -63,7 +63,7 @@ function ProjectCard({ project, index, isInView }: { project: typeof projects[0]
       }}
     >
       {/* Image */}
-      <div className="relative h-48 md:h-64 overflow-hidden">
+      <div className="relative h-40 sm:h-48 md:h-56 lg:h-64 overflow-hidden">
         <img
           src={project.image}
           alt={project.title}
@@ -147,7 +147,7 @@ export function ProjectsSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
           {projects.map((project, index) => (
             <ProjectCard
               key={project.title}
@@ -165,7 +165,7 @@ export function ProjectsSection() {
           className="mt-12 text-center"
         >
           <Button variant="hero-outline" size="lg" asChild>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/nanbonsmr" target="_blank" rel="noopener noreferrer">
               View All Projects
               <ArrowRight className="w-4 h-4" />
             </a>
