@@ -54,95 +54,97 @@ const experiences = [
   },
 ];
 
-function TimelineItem({ experience, index, isInView }: { 
+function TimelineItem({ experience, index, isInView, isLast }: { 
   experience: typeof experiences[0]; 
   index: number; 
   isInView: boolean;
+  isLast: boolean;
 }) {
-  const isEven = index % 2 === 0;
-
   return (
     <motion.div
-      initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-      animate={isInView ? { opacity: 1, x: 0 } : {}}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.15 }}
-      className={`flex ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 items-start`}
+      className="relative flex gap-6 md:gap-8"
     >
-      {/* Content */}
-      <div className={`flex-1 ${isEven ? 'md:text-right' : ''}`}>
-        <motion.div
-          whileHover={{ scale: 1.02, y: -5 }}
-          className="glass-card rounded-2xl p-6 md:p-8 group cursor-pointer"
-        >
-          {/* Header */}
-          <div className={`flex flex-wrap items-center gap-3 mb-4 ${isEven ? 'md:justify-end' : ''}`}>
-            {experience.current && (
-              <span className="px-3 py-1 text-xs font-medium rounded-full bg-accent/20 text-accent">
-                Current
-              </span>
-            )}
-            <span className="flex items-center gap-1 text-sm text-muted-foreground">
-              <Calendar className="w-4 h-4" />
-              {experience.period}
-            </span>
-          </div>
-
-          <h3 className="text-xl font-display font-semibold mb-1 group-hover:text-primary transition-colors">
-            {experience.title}
-          </h3>
-          <div className={`flex flex-wrap items-center gap-4 text-muted-foreground mb-4 ${isEven ? 'md:justify-end' : ''}`}>
-            <span className="flex items-center gap-1">
-              <Briefcase className="w-4 h-4" />
-              {experience.company}
-            </span>
-            <span className="flex items-center gap-1">
-              <MapPin className="w-4 h-4" />
-              {experience.location}
-            </span>
-          </div>
-
-          <p className="text-muted-foreground text-sm mb-4">
-            {experience.description}
-          </p>
-
-          <ul className={`space-y-2 ${isEven ? 'md:text-right' : ''}`}>
-            {experience.achievements.map((achievement, i) => (
-              <li
-                key={i}
-                className={`text-sm text-foreground/80 flex items-start gap-2 ${isEven ? 'md:flex-row-reverse' : ''}`}
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                {achievement}
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-      </div>
-
-      {/* Timeline dot */}
-      <div className="hidden md:flex flex-col items-center">
+      {/* Timeline line and dot */}
+      <div className="flex flex-col items-center">
         <motion.div
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : {}}
-          transition={{ duration: 0.4, delay: index * 0.15 + 0.2 }}
-          className={`w-4 h-4 rounded-full ${
+          transition={{ duration: 0.4, delay: index * 0.15 + 0.1 }}
+          className={`relative z-10 w-4 h-4 rounded-full shrink-0 ${
             experience.current
-              ? 'bg-accent shadow-[0_0_20px_hsl(180_100%_50%/0.6)]'
-              : 'bg-primary shadow-[0_0_15px_hsl(270_95%_60%/0.4)]'
+              ? 'bg-accent shadow-[0_0_20px_hsl(var(--accent)/0.6)]'
+              : 'bg-primary shadow-[0_0_15px_hsl(var(--primary)/0.4)]'
           }`}
-        />
-        {index < experiences.length - 1 && (
+        >
+          {experience.current && (
+            <span className="absolute inset-0 rounded-full bg-accent animate-ping opacity-50" />
+          )}
+        </motion.div>
+        {!isLast && (
           <motion.div
             initial={{ scaleY: 0 }}
             animate={isInView ? { scaleY: 1 } : {}}
-            transition={{ duration: 0.6, delay: index * 0.15 + 0.3 }}
-            className="w-0.5 h-full min-h-[100px] bg-gradient-to-b from-primary to-primary/20 origin-top"
+            transition={{ duration: 0.6, delay: index * 0.15 + 0.2 }}
+            className="w-0.5 flex-1 min-h-[40px] bg-gradient-to-b from-primary/60 to-primary/10 origin-top"
           />
         )}
       </div>
 
-      {/* Spacer for alternating layout */}
-      <div className="hidden md:block flex-1" />
+      {/* Content card */}
+      <motion.div
+        whileHover={{ scale: 1.01, x: 5 }}
+        transition={{ duration: 0.2 }}
+        className="flex-1 glass-card rounded-2xl p-6 md:p-8 group cursor-pointer mb-6"
+      >
+        {/* Period badge */}
+        <div className="flex flex-wrap items-center gap-3 mb-3">
+          <span className="flex items-center gap-1.5 text-sm font-medium text-primary">
+            <Calendar className="w-4 h-4" />
+            {experience.period}
+          </span>
+          {experience.current && (
+            <span className="px-3 py-1 text-xs font-medium rounded-full bg-accent/20 text-accent border border-accent/30">
+              Current
+            </span>
+          )}
+        </div>
+
+        {/* Title and company */}
+        <h3 className="text-xl md:text-2xl font-display font-semibold mb-2 group-hover:text-primary transition-colors">
+          {experience.title}
+        </h3>
+        <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-4">
+          <span className="flex items-center gap-1.5">
+            <Briefcase className="w-4 h-4" />
+            {experience.company}
+          </span>
+          <span className="flex items-center gap-1.5">
+            <MapPin className="w-4 h-4" />
+            {experience.location}
+          </span>
+        </div>
+
+        {/* Description */}
+        <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+          {experience.description}
+        </p>
+
+        {/* Achievements */}
+        <ul className="space-y-2">
+          {experience.achievements.map((achievement, i) => (
+            <li
+              key={i}
+              className="text-sm text-foreground/80 flex items-start gap-2"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-primary to-accent mt-2 shrink-0" />
+              {achievement}
+            </li>
+          ))}
+        </ul>
+      </motion.div>
     </motion.div>
   );
 }
@@ -179,6 +181,7 @@ export function ExperienceSection() {
               experience={experience}
               index={index}
               isInView={isInView}
+              isLast={index === experiences.length - 1}
             />
           ))}
         </div>
