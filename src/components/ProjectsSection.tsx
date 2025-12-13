@@ -3,39 +3,44 @@ import { useRef, useState } from 'react';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+import peakdraftImg from '@/assets/projects/peakdraft.png';
+import peakflowImg from '@/assets/projects/peakflow.png';
+import zemenayImg from '@/assets/projects/zemenay.png';
+import summxImg from '@/assets/projects/summx.png';
+
 const projects = [
   {
-    title: 'AI-Powered SaaS Platform',
-    description: 'A comprehensive AI platform for automating business workflows with machine learning models and intelligent automation.',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
-    tech: ['Next.js', 'OpenAI', 'Prisma', 'PostgreSQL', 'Stripe'],
-    liveUrl: '#',
-    githubUrl: '#',
+    title: 'PeakDraft - AI Content Generator',
+    description: 'AI-powered SaaS app that generates blogs, emails, ads, and more. Features task management with Kanban boards, text humanizer, and 14+ AI templates.',
+    image: peakdraftImg,
+    tech: ['React', 'Tailwind CSS', 'Clerk', 'Supabase', 'Paddle', 'OpenAI', 'shadcn'],
+    liveUrl: 'https://peakdraft.netlify.app',
+    githubUrl: 'https://github.com/nanbonsmr/peakdraft.git',
     featured: true,
   },
   {
-    title: 'Real-time Collaboration Tool',
-    description: 'A collaborative workspace with real-time document editing, video conferencing, and project management features.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80',
-    tech: ['React', 'Socket.io', 'Node.js', 'MongoDB', 'WebRTC'],
-    liveUrl: '#',
-    githubUrl: '#',
+    title: 'PeakFlow - Blog Platform',
+    description: 'Full-stack blog website with admin dashboard for content management, user management, and email notifications via Resend.',
+    image: peakflowImg,
+    tech: ['React', 'Tailwind CSS', 'Supabase', 'Resend'],
+    liveUrl: 'https://peakflow-blog.netlify.app/',
+    githubUrl: 'https://github.com/nanbonsmr/PeakFlow.git',
   },
   {
-    title: 'E-Commerce Platform',
-    description: 'A modern e-commerce solution with advanced filtering, payment processing, and inventory management.',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80',
-    tech: ['Next.js', 'Stripe', 'Supabase', 'Tailwind'],
-    liveUrl: '#',
-    githubUrl: '#',
+    title: 'Zemenay - Digital Agency',
+    description: 'Responsive digital marketing agency website with modern design, smooth animations, and professional aesthetics.',
+    image: zemenayImg,
+    tech: ['React', 'Tailwind CSS', 'CSS', 'Framer Motion'],
+    liveUrl: 'https://zemenay.netlify.app',
+    githubUrl: 'https://github.com/nanbonsmr/zemenay.git',
   },
   {
-    title: 'Analytics Dashboard',
-    description: 'Interactive data visualization dashboard with real-time metrics, custom reports, and AI-powered insights.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
-    tech: ['React', 'D3.js', 'Python', 'FastAPI', 'Redis'],
-    liveUrl: '#',
-    githubUrl: '#',
+    title: 'SummX - AI Article Summarizer',
+    description: 'AI-powered article summarizer that transforms lengthy articles into clear, concise summaries using OpenAI GPT-4.',
+    image: summxImg,
+    tech: ['Next.js', 'React', 'shadcn', 'OpenAI API'],
+    liveUrl: 'https://summx.netlify.app/',
+    githubUrl: 'https://github.com/nanbonsmr/summery.git',
   },
 ];
 
