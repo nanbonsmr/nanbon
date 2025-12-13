@@ -16,7 +16,7 @@ export function Footer() {
           className="flex flex-col md:flex-row items-center justify-between gap-4"
         >
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-display font-bold gradient-text">Dev.</span>
+            <span className="text-2xl font-display font-bold gradient-text">Nanbon.</span>
           </div>
 
           <p className="text-sm text-muted-foreground flex items-center gap-1">
