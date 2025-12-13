@@ -39,22 +39,22 @@ export function FAQSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="faq" className="py-24 md:py-32 relative overflow-hidden">
+    <section id="faq" className="py-16 sm:py-24 md:py-32 relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-1/3 right-0 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/3 left-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/3 right-0 w-64 sm:w-80 h-64 sm:h-80 bg-accent/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/3 left-0 w-64 sm:w-80 h-64 sm:h-80 bg-primary/10 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-6 relative z-10" ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6 relative z-10" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mb-4">
             Frequently Asked <span className="gradient-text">Questions</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
             Got questions? I've got answers. Here are some common inquiries from clients.
           </p>
         </motion.div>
@@ -65,7 +65,7 @@ export function FAQSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-3xl mx-auto"
         >
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
@@ -75,12 +75,12 @@ export function FAQSection() {
               >
                 <AccordionItem
                   value={`item-${index}`}
-                  className="glass-card rounded-xl px-6 border-none"
+                  className="glass-card rounded-xl px-4 sm:px-6 border-none"
                 >
-                  <AccordionTrigger className="text-left font-display font-medium text-foreground hover:text-primary hover:no-underline py-5">
+                  <AccordionTrigger className="text-left font-display font-medium text-sm sm:text-base text-foreground hover:text-primary hover:no-underline py-4 sm:py-5">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+                  <AccordionContent className="text-sm sm:text-base text-muted-foreground pb-4 sm:pb-5 leading-relaxed">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -94,7 +94,7 @@ export function FAQSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-12"
+          className="text-center mt-8 sm:mt-12"
         >
           <p className="text-muted-foreground">
             Still have questions?{' '}
