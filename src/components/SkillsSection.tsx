@@ -142,7 +142,7 @@ export function SkillsSection() {
           {[
             { value: '16+', label: 'Technologies' },
             { value: '2+', label: 'Years Experience' },
-            { value: '10+', label: 'Projects Completed' },
+            { value: '50+', label: 'Projects Completed' },
             { value: '100%', label: 'Dedication' },
           ].map((stat, index) => (
             <motion.div
