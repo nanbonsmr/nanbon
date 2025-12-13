@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, Clock, User } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
@@ -10,6 +11,11 @@ import { Footer } from '@/components/Footer';
 export default function BlogPost() {
   const { id } = useParams<{ id: string }>();
   const post = getBlogPost(id || '');
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   if (!post) {
     return (
