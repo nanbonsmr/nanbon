@@ -13,9 +13,9 @@ const socialLinks = [
 ];
 
 const contactInfo = [
-  { icon: Mail, value: 'hello@developer.com', label: 'Email' },
-  { icon: MapPin, value: 'San Francisco, CA', label: 'Location' },
-  { icon: Phone, value: '+1 (555) 123-4567', label: 'Phone' },
+  { icon: Mail, value: 'nanbondev@gmail.com', label: 'Email' },
+  { icon: MapPin, value: 'Ethiopia', label: 'Location' },
+  { icon: Phone, value: '+251 976 892 311', label: 'Phone' },
 ];
 
 export function ContactSection() {
