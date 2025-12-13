@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import { Code2, Lightbulb, Rocket, Users } from 'lucide-react';
 
 const stats = [
-  { icon: Code2, value: '5+', label: 'Years Experience' },
+  { icon: Code2, value: '2+', label: 'Years Experience' },
   { icon: Rocket, value: '50+', label: 'Projects Delivered' },
   { icon: Users, value: '30+', label: 'Happy Clients' },
   { icon: Lightbulb, value: '100+', label: 'Problems Solved' },
@@ -48,7 +48,7 @@ export function AboutSection() {
             </h3>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                With over 5 years of experience in web development, I specialize in building 
+                With over 2 years of experience in web development, I specialize in building 
                 high-performance, scalable applications that solve real-world problems.
               </p>
               <p>
