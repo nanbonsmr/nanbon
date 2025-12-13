@@ -1,58 +1,9 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-
-const blogPosts = [
-  {
-    title: 'Building Scalable SaaS Applications with React and Supabase',
-    excerpt: 'Learn how to architect and build production-ready SaaS applications using React, Supabase, and modern best practices for scalability.',
-    category: 'Development',
-    date: 'Dec 10, 2024',
-    readTime: '8 min read',
-    image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=400&fit=crop',
-  },
-  {
-    title: 'The Power of AI in Modern Web Development',
-    excerpt: 'Discover how AI tools and APIs are revolutionizing the way we build web applications and enhance user experiences.',
-    category: 'AI & Tech',
-    date: 'Dec 5, 2024',
-    readTime: '6 min read',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop',
-  },
-  {
-    title: 'Mastering Tailwind CSS: Tips and Tricks for 2024',
-    excerpt: 'Advanced techniques and patterns for building beautiful, responsive UIs faster with Tailwind CSS utility classes.',
-    category: 'CSS',
-    date: 'Nov 28, 2024',
-    readTime: '5 min read',
-    image: 'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=600&h=400&fit=crop',
-  },
-  {
-    title: 'Next.js 14: A Complete Guide to App Router',
-    excerpt: 'Everything you need to know about the new App Router in Next.js 14, including server components and streaming.',
-    category: 'Next.js',
-    date: 'Nov 20, 2024',
-    readTime: '10 min read',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop',
-  },
-  {
-    title: 'Authentication Best Practices for Web Apps',
-    excerpt: 'Secure your applications with modern authentication strategies including OAuth, JWT, and session management.',
-    category: 'Security',
-    date: 'Nov 15, 2024',
-    readTime: '7 min read',
-    image: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=600&h=400&fit=crop',
-  },
-  {
-    title: 'Creating Stunning 3D Experiences with Three.js',
-    excerpt: 'A beginner-friendly guide to adding immersive 3D graphics to your web projects using Three.js and React.',
-    category: '3D Graphics',
-    date: 'Nov 8, 2024',
-    readTime: '9 min read',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop',
-  },
-];
+import { blogPosts } from '@/lib/blogData';
 
 function BlogCard({ post, index, isInView }: { post: typeof blogPosts[0]; index: number; isInView: boolean }) {
   return (
@@ -61,47 +12,49 @@ function BlogCard({ post, index, isInView }: { post: typeof blogPosts[0]; index:
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ y: -5 }}
-      className="group glass-card rounded-2xl overflow-hidden cursor-pointer"
+      className="group glass-card rounded-2xl overflow-hidden"
     >
-      {/* Image */}
-      <div className="relative h-40 sm:h-48 overflow-hidden">
-        <img
-          src={post.image}
-          alt={post.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
-        <span className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-medium bg-primary/90 text-primary-foreground">
-          {post.category}
-        </span>
-      </div>
-
-      {/* Content */}
-      <div className="p-4 sm:p-6">
-        <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
-          <span className="flex items-center gap-1">
-            <Calendar className="w-3 h-3" />
-            {post.date}
-          </span>
-          <span className="flex items-center gap-1">
-            <Clock className="w-3 h-3" />
-            {post.readTime}
+      <Link to={`/blog/${post.id}`} className="block">
+        {/* Image */}
+        <div className="relative h-40 sm:h-48 overflow-hidden">
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
+          <span className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-medium bg-primary/90 text-primary-foreground">
+            {post.category}
           </span>
         </div>
 
-        <h3 className="font-display font-semibold text-base sm:text-lg mb-2 group-hover:text-primary transition-colors line-clamp-2">
-          {post.title}
-        </h3>
+        {/* Content */}
+        <div className="p-4 sm:p-6">
+          <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
+            <span className="flex items-center gap-1">
+              <Calendar className="w-3 h-3" />
+              {post.date}
+            </span>
+            <span className="flex items-center gap-1">
+              <Clock className="w-3 h-3" />
+              {post.readTime}
+            </span>
+          </div>
 
-        <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
-          {post.excerpt}
-        </p>
+          <h3 className="font-display font-semibold text-base sm:text-lg mb-2 group-hover:text-primary transition-colors line-clamp-2">
+            {post.title}
+          </h3>
 
-        <span className="inline-flex items-center gap-1 text-sm font-medium text-primary group-hover:gap-2 transition-all">
-          Read More
-          <ArrowRight className="w-4 h-4" />
-        </span>
-      </div>
+          <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
+            {post.excerpt}
+          </p>
+
+          <span className="inline-flex items-center gap-1 text-sm font-medium text-primary group-hover:gap-2 transition-all">
+            Read More
+            <ArrowRight className="w-4 h-4" />
+          </span>
+        </div>
+      </Link>
     </motion.article>
   );
 }
@@ -135,7 +88,7 @@ export function BlogSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {blogPosts.map((post, index) => (
             <BlogCard
-              key={post.title}
+              key={post.id}
               post={post}
               index={index}
               isInView={isInView}
