@@ -7,6 +7,9 @@ import peakdraftImg from '@/assets/projects/peakdraft.png';
 import peakflowImg from '@/assets/projects/peakflow.png';
 import zemenayImg from '@/assets/projects/zemenay.png';
 import summxImg from '@/assets/projects/summx.png';
+import growthpagesImg from '@/assets/projects/growthpages.png';
+import chatveroImg from '@/assets/projects/chatvero.png';
+import learngptImg from '@/assets/projects/learngpt.png';
 
 const projects = [
   {
@@ -17,6 +20,28 @@ const projects = [
     liveUrl: 'https://peakdraft.netlify.app',
     githubUrl: 'https://github.com/nanbonsmr/peakdraft.git',
     featured: true,
+  },
+  {
+    title: 'GrowthPages - Landing Page Builder',
+    description: 'SaaS platform to build beautiful signup pages for newsletters, waitlists, and events in minutes. Features drag-and-drop builder, real-time analytics, and subscriber management.',
+    image: growthpagesImg,
+    tech: ['React', 'Tailwind CSS', 'Supabase', 'Framer Motion', 'shadcn'],
+    liveUrl: 'https://growthpagess.netlify.app',
+    featured: true,
+  },
+  {
+    title: 'Chatvero - AI Chatbot Platform',
+    description: 'AI-powered chatbot builder that turns websites into lead-converting chatbots. Features website crawling, instant responses, lead capture, and analytics dashboard.',
+    image: chatveroImg,
+    tech: ['React', 'Tailwind CSS', 'Supabase', 'OpenAI', 'Framer Motion'],
+    liveUrl: 'https://chatvero.netlify.app',
+  },
+  {
+    title: 'LearnGPT - AI Learning Platform',
+    description: 'Free educational platform to master ChatGPT with practical lessons, real prompts, and hands-on exercises for business, study, content creation, and coding.',
+    image: learngptImg,
+    tech: ['React', 'Tailwind CSS', 'Supabase', 'shadcn', 'Framer Motion'],
+    liveUrl: 'https://learngpts.netlify.app',
   },
   {
     title: 'PeakFlow - Blog Platform',
@@ -83,12 +108,14 @@ function ProjectCard({ project, index, isInView }: { project: typeof projects[0]
               Live Demo
             </a>
           </Button>
-          <Button variant="hero-outline" size="lg" asChild>
-            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-              <Github className="w-4 h-4" />
-              Code
-            </a>
-          </Button>
+          {project.githubUrl && (
+            <Button variant="hero-outline" size="lg" asChild>
+              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                <Github className="w-4 h-4" />
+                Code
+              </a>
+            </Button>
+          )}
         </motion.div>
       </div>
 
