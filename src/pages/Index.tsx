@@ -1,8 +1,6 @@
 import { Navbar } from '@/components/Navbar';
 import { HeroSection } from '@/components/HeroSection';
-import { ClientsSection } from '@/components/ClientsSection';
 import { AboutSection } from '@/components/AboutSection';
-import { ServicesSection } from '@/components/ServicesSection';
 import { SkillsSection } from '@/components/SkillsSection';
 import { ProjectsSection } from '@/components/ProjectsSection';
 import { ExperienceSection } from '@/components/ExperienceSection';
@@ -18,10 +16,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Nanbon — Creative Digital Agency | Web Design & Development</title>
-        <meta name="description" content="Creative digital agency specializing in web design, brand identity, UI/UX, and modern web development. We build digital experiences that matter." />
-        <meta name="keywords" content="creative agency, web design, brand identity, UI/UX design, web development, digital marketing" />
-        <link rel="canonical" href="https://nanbon.lovable.app" />
+        <title>Full-Stack Developer | Modern Web Applications & Creative Solutions</title>
+        <meta name="description" content="Expert full-stack developer specializing in React, Next.js, Node.js, and modern web technologies. Building scalable, performant applications for startups and enterprises." />
+        <meta name="keywords" content="full-stack developer, react developer, next.js, node.js, web developer, software engineer" />
+        <link rel="canonical" href="https://developer.com" />
       </Helmet>
       
       <LoadingScreen />
@@ -30,9 +28,7 @@ const Index = () => {
         <Navbar />
         <main>
           <HeroSection />
-          <ClientsSection />
           <AboutSection />
-          <ServicesSection />
           <SkillsSection />
           <ProjectsSection />
           <ExperienceSection />
