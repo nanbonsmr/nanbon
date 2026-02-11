@@ -1,5 +1,5 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { useRef, useState, useMemo } from 'react';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -74,9 +74,11 @@ function ProjectCard({ project, index, isInView }: { project: typeof projects[0]
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.15 }}
+      layout
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={isInView ? { opacity: 1, scale: 1 } : {}}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={`group relative overflow-hidden rounded-2xl glass-card ${
@@ -152,6 +154,18 @@ function ProjectCard({ project, index, isInView }: { project: typeof projects[0]
 export function ProjectsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [activeFilter, setActiveFilter] = useState('All');
+
+  const allTechs = useMemo(() => {
+    const techs = new Set<string>();
+    projects.forEach(p => p.tech.forEach(t => techs.add(t)));
+    return ['All', ...Array.from(techs).sort()];
+  }, []);
+
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === 'All') return projects;
+    return projects.filter(p => p.tech.includes(activeFilter));
+  }, [activeFilter]);
 
   return (
     <section id="projects" className="py-24 md:py-32 relative overflow-hidden">
@@ -169,21 +183,40 @@ export function ProjectsSection() {
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
             A selection of projects that showcase my skills in building modern, scalable applications
           </p>
+
+          {/* Filter chips */}
+          <div className="flex flex-wrap justify-center gap-2">
+            {allTechs.map((tech) => (
+              <button
+                key={tech}
+                onClick={() => setActiveFilter(tech)}
+                className={`px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-300 ${
+                  activeFilter === tech
+                    ? 'bg-primary text-primary-foreground shadow-[0_0_20px_hsl(270_95%_60%/0.4)]'
+                    : 'bg-muted text-muted-foreground hover:bg-muted/80 hover:text-foreground'
+                }`}
+              >
+                {tech}
+              </button>
+            ))}
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={project.title}
-              project={project}
-              index={index}
-              isInView={isInView}
-            />
-          ))}
-        </div>
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, index) => (
+              <ProjectCard
+                key={project.title}
+                project={project}
+                index={index}
+                isInView={isInView}
+              />
+            ))}
+          </AnimatePresence>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
