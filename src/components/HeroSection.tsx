@@ -40,8 +40,8 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight"
         >
-          Full-Stack Developer &<br />
-          <span className="text-glow">Creative Problem Solver</span>
+          We Build Digital<br />
+          <span className="text-glow">Experiences That Matter</span>
         </motion.h1>
 
         <motion.p
@@ -50,7 +50,7 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4"
         >
-          Building scalable, modern web applications with cutting-edge technology
+          A creative agency crafting stunning websites, brands, and digital products for ambitious startups and enterprises.
         </motion.p>
 
         <motion.div
@@ -69,15 +69,15 @@ export function HeroSection() {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Button variant="hero" size="xl" asChild>
-            <a href="#projects">
+            <a href="#services">
               <ExternalLink className="w-5 h-5" />
-              View Projects
+              Our Services
             </a>
           </Button>
           <Button variant="hero-outline" size="xl" asChild>
             <a href="#contact">
               <Mail className="w-5 h-5" />
-              Contact Me
+              Get in Touch
             </a>
           </Button>
         </motion.div>
