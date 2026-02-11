@@ -2,13 +2,12 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const skills = [
-  'React',
-  'Next.js', 
-  'Node.js',
-  'TypeScript',
-  'Three.js',
-  'AI & ML',
-  'SaaS',
+  'Web Design',
+  'Brand Strategy',
+  'UI/UX',
+  'SaaS Products',
+  'Marketing Sites',
+  'AI Solutions',
 ];
 
 export function TypewriterEffect() {
