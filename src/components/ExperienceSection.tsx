@@ -4,52 +4,30 @@ import { Briefcase, Calendar, MapPin } from 'lucide-react';
 
 const experiences = [
   {
-    title: 'Senior Full-Stack Developer',
-    company: 'Tech Innovators Inc.',
-    location: 'San Francisco, CA',
-    period: '2022 - Present',
-    description: 'Leading development of enterprise SaaS applications, mentoring junior developers, and architecting scalable microservices infrastructure.',
+    title: 'Full-Stack Developer — School Examination Platform',
+    company: 'Personal / School Project',
+    location: 'Ethiopia',
+    period: '2024 - Present',
+    description:
+      'Designed and built a complete online examination platform for my school, covering everything from student authentication to real-time exam delivery, grading, and result analytics.',
     achievements: [
-      'Reduced application load time by 60% through optimization',
-      'Led a team of 5 developers on critical projects',
-      'Implemented CI/CD pipelines reducing deployment time by 75%',
+      'Built end-to-end: auth, exam engine, question bank, timer, and auto-grading',
+      'Role-based dashboards for admins, teachers, and students',
+      'Secure exam sessions with anti-cheating safeguards and result analytics',
     ],
     current: true,
   },
   {
-    title: 'Full-Stack Developer',
-    company: 'Digital Solutions Agency',
-    location: 'New York, NY',
-    period: '2020 - 2022',
-    description: 'Developed custom web applications for clients across various industries, from e-commerce to fintech.',
-    achievements: [
-      'Built 15+ client applications from concept to deployment',
-      'Integrated payment processing handling $2M+ in transactions',
-      'Achieved 99.9% uptime for all production applications',
-    ],
-  },
-  {
-    title: 'Frontend Developer',
-    company: 'Startup Labs',
-    location: 'Austin, TX',
-    period: '2019 - 2020',
-    description: 'Crafted responsive user interfaces and interactive experiences for early-stage startups.',
-    achievements: [
-      'Converted 3 MVP prototypes into production applications',
-      'Implemented design systems improving development speed by 40%',
-      'Collaborated directly with founders on product strategy',
-    ],
-  },
-  {
-    title: 'Freelance Developer',
-    company: 'Self-Employed',
+    title: 'Freelance Developer & Hackathon Builder',
+    company: 'Independent',
     location: 'Remote',
-    period: '2018 - 2019',
-    description: 'Started freelancing journey building websites and web applications for small businesses and entrepreneurs.',
+    period: '2023 - Present',
+    description:
+      'Worked on a variety of projects across different hackathons and as a freelancer — shipping web apps, landing pages, and full-stack products for clients and teams.',
     achievements: [
-      'Completed 20+ projects for clients worldwide',
-      'Maintained 5-star rating on freelance platforms',
-      'Built a network of recurring clients',
+      'Participated in multiple hackathons, shipping working products under tight deadlines',
+      'Delivered freelance web apps and landing pages for diverse clients',
+      'Collaborated with cross-functional teams across design, backend, and product',
     ],
   },
 ];
