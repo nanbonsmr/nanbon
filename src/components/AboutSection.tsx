@@ -85,14 +85,11 @@ export function AboutSection() {
           </motion.div>
 
           {/* Bio Card */}
-          <div className="lg:col-span-7">
-        <div className="grid grid-cols-1 gap-8 items-center">
-          {/* Bio Card */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="glass-card rounded-2xl p-6 sm:p-8 md:p-10"
+            className="lg:col-span-7 glass-card rounded-2xl p-6 sm:p-8 md:p-10"
           >
             <h3 className="text-xl sm:text-2xl font-display font-semibold mb-4 sm:mb-6 gradient-text">
               Hello, I'm a Full-Stack Developer
@@ -125,34 +122,34 @@ export function AboutSection() {
               ))}
             </div>
           </motion.div>
-
-          {/* Stats Grid */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-2 gap-3 sm:gap-6"
-          >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center group cursor-pointer"
-              >
-                <div className="w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-3 sm:mb-4 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:shadow-[0_0_30px_hsl(270_95%_60%/0.4)] transition-all duration-300">
-                  <stat.icon className="w-5 h-5 sm:w-7 sm:h-7 text-primary" />
-                </div>
-                <div className="text-2xl sm:text-3xl font-display font-bold gradient-text mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
+
+        {/* Stats Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6"
+        >
+          {stats.map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center group cursor-pointer"
+            >
+              <div className="w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-3 sm:mb-4 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:shadow-[0_0_30px_hsl(270_95%_60%/0.4)] transition-all duration-300">
+                <stat.icon className="w-5 h-5 sm:w-7 sm:h-7 text-primary" />
+              </div>
+              <div className="text-2xl sm:text-3xl font-display font-bold gradient-text mb-1">
+                {stat.value}
+              </div>
+              <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
