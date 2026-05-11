@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Code2, Lightbulb, Rocket, Users } from 'lucide-react';
+import portraitImg from '@/assets/nanbon-portrait.png';
 
 const stats = [
   { icon: Code2, value: '2+', label: 'Years Experience' },
