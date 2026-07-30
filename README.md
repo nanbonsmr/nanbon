@@ -1,73 +1,87 @@
-# Welcome to your Lovable project
+🌐 Nanbon Samuel – Portfolio Website
 
-## Project info
+Welcome to my personal portfolio website! This project showcases my work, skills, and experience as a Full Stack Web Developer focused on building modern, scalable, and AI-powered web applications.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+🚀 About
 
-## How can I edit this code?
+This portfolio was created to highlight my professional journey, featured projects, technical skills, and the services I offer. It also provides an easy way for clients, recruiters, and collaborators to connect with me.
 
-There are several ways of editing your application.
+✨ Features
 
-**Use Lovable**
+- Modern and responsive design
+- Fast loading performance
+- Project showcase with live demos
+- Skills and technologies section
+- Professional experience
+- Contact information
+- Mobile-friendly interface
+- Clean and accessible UI
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+🛠️ Technologies Used
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- React.js
+- Next.js
 - Tailwind CSS
+- TypeScript
+- Git & GitHub
 
-## How can I deploy this project?
+📂 Featured Projects
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Some of the projects featured in this portfolio include:
 
-## Can I connect a custom domain to my Lovable project?
+- AI-powered applications
+- Business websites
+- Portfolio websites
+- Landing pages
+- Management systems
+- E-commerce solutions
+- Custom web applications
 
-Yes, you can!
+Each project includes a description, technologies used, and a link to the live demo or source code (where available).
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+💼 Services
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- Full Stack Web Development
+- Responsive Website Design
+- Business Websites
+- AI Integration
+- Landing Pages
+- Portfolio Websites
+- Website Maintenance
+- Performance Optimization
+- SEO-Friendly Development
+
+📬 Contact
+
+Feel free to reach out for collaborations, freelance opportunities, or project discussions.
+
+- Name: Nanbon Samuel
+- Portfolio: https://nanbon.vercel.app
+- LinkedIn: https://www.linkedin.com
+- GitHub: https://github.com
+- Email: your-email@example.com
+
+🚀 Getting Started
+
+Clone the repository:
+
+git clone https://github.com/yourusername/portfolio.git
+
+Install dependencies:
+
+npm install
+
+Start the development server:
+
+npm run dev
+
+Build for production:
+
+npm run build
+
+📄 License
+
+This project is open source and available under the MIT License.
